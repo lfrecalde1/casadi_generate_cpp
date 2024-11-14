@@ -20,9 +20,11 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fopenmp -Ofast")
 
 # Add the executable for your main application
 add_executable(pointers src/pointers.cpp)
+add_subdirectory(matplotplusplus)
 
 # Link the shared library by specifying its full path
-target_link_libraries(pointers ${CMAKE_CURRENT_SOURCE_DIR}/lib/libmy_function_Ofast.so)
+target_link_libraries(pointers ${CMAKE_CURRENT_SOURCE_DIR}/lib/libmy_function_cost_Ofast.so ${CMAKE_CURRENT_SOURCE_DIR}/lib/libmy_function_gradient_Ofast.so ${CMAKE_CURRENT_SOURCE_DIR}/lib/libmy_function_hessian_Ofast.so ${CMAKE_CURRENT_SOURCE_DIR}/lib/libmy_function_delta_Ofast.so matplot)
+
 
 # Include directories
 target_include_directories(pointers PUBLIC
